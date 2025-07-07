@@ -1,0 +1,3 @@
+adafruit-circuitpython-hid
+adafruit-circuitpython-keyboard
+adafruit-circuitpython-keyboard-layout-us

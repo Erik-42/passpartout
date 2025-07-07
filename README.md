@@ -25,9 +25,22 @@ Ce projet utilise la bibliothèque Adafruit HID pour communiquer avec votre ordi
 
 ## Installation
 
-1. Installez CircuitPython sur votre Raspberry Pi Pico
-2. Copiez tous les fichiers du projet sur votre Raspberry Pi Pico
-3. Assurez-vous d'avoir les bibliothèques Adafruit HID installées
+1. Préparez votre Raspberry Pi Pico
+   - Téléchargez CircuitPython depuis https://circuitpython.org/downloads
+   - Copiez le fichier .uf2 sur votre Raspberry Pi Pico
+
+2. Configuration du système
+   - Mettez votre Raspberry Pi Pico en mode CIRCUITPY
+   - Copiez tous les fichiers du projet sur le périphérique CIRCUITPY
+   - Assurez-vous que les bibliothèques Adafruit HID sont installées
+
+3. Configuration des bibliothèques
+   - Téléchargez la bibliothèque Adafruit HID depuis la CircuitPython Library Bundle
+   - Copiez les fichiers nécessaires dans le dossier lib/
+   - Les fichiers requis sont :
+     - adafruit_hid
+     - adafruit_keyboard
+     - adafruit_keyboard_layout_us
 
 ## Utilisation
 
@@ -44,16 +57,19 @@ Ce projet utilise la bibliothèque Adafruit HID pour communiquer avec votre ordi
 Le menu de configuration permet de :
 
 1. Identifier le système cible
-   - Sélectionner le système d'exploitation (Windows/Linux)
+
+   - Sélectionner le système d'exploitation (Windows/Linux/Mac)
    - Spécifier la version du système
    - Configurer les paramètres régionaux
 
 2. Personnaliser les séquences de dépannage
+
    - Choisir les commandes à exécuter
    - Définir l'ordre des opérations
    - Ajuster les délais entre les actions
 
 3. Configurer les options d'exécution
+
    - Activer/désactiver les messages de confirmation
    - Définir les combinaisons de touches spécifiques
    - Configurer les actions de déblocage
@@ -107,6 +123,63 @@ Le menu est accessible via les touches directionnelles et la touche Entrée pour
 ## Licence
 
 Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
+
+## Tests et validation
+
+Pour tester le système et ses fonctionnalités :
+
+1. Test simplifié (recommandé avant la mise sur clé)
+   - Exécutez le test simplifié
+   ```bash
+   python3 test_menu.py
+   ```
+   - Ce test ne nécessite aucune installation
+   - Vérifiez la navigation dans le menu
+   - Testez les commandes de base
+   - Vérifiez les séquences de déblocage
+
+2. Test avancé (optionnel)
+   - Exécutez le test avancé
+   ```bash
+   python3 test_virtual.py
+   ```
+   - Ce test simule l'environnement CircuitPython complet
+   - Vérifiez toutes les fonctionnalités HID
+   - Testez l'intégration avec Adafruit HID
+   - Vérifiez la gestion des entrées/sorties
+
+2. Test sur clé USB
+   - Préparez votre environnement
+   - Assurez-vous que votre Raspberry Pi Pico est en mode CIRCUITPY
+   - Les fichiers du projet doivent être copiés sur CIRCUITPY
+   - Les bibliothèques Adafruit doivent être installées dans le dossier lib/
+
+2. Exécution des tests
+   - Branchez votre Raspberry Pi Pico à l'ordinateur
+   - Le menu de configuration s'affichera automatiquement
+   - Utilisez les touches directionnelles pour naviguer
+   - Testez les différentes commandes et séquences
+
+3. Tests spécifiques
+   - Vérifiez que le menu s'affiche correctement
+   - Testez la navigation entre les différents menus
+   - Vérifiez les combinaisons de touches
+   - Testez les délais de réponse
+   - Vérifiez la détection automatique du système
+
+## Installation des bibliothèques
+
+Pour installer les bibliothèques nécessaires :
+
+1. Exécutez le script d'installation
+```bash
+python3 install_libs.py
+```
+
+2. Les bibliothèques requises seront automatiquement téléchargées et installées
+3. Les fichiers seront copiés dans le dossier lib/
+
+Note : Assurez-vous d'avoir Internet pour télécharger le bundle Adafruit.
 
 ## Sécurité et responsabilité
 
