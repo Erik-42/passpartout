@@ -3,15 +3,22 @@ import os
 import re
 import time
 import board
-import storage
-import usb_hid
 import digitalio
-
+import usb_hid
 from adafruit_hid.consumer_control_code import ConsumerControlCode
 from adafruit_hid.consumer_control import ConsumerControl
 from adafruit_hid.keyboard import Keyboard
 from adafruit_hid.keycode import Keycode
 from adafruit_hid.mouse import Mouse
+from payloads import load_payloads
+import json
+
+# Mock pour le module storage
+class MockStorage:
+    def disable_usb_drive(self):
+        print("Lecteur USB désactivé")
+    
+storage = MockStorage()
 
 cc = ConsumerControl(usb_hid.devices)
 kb = Keyboard(usb_hid.devices)
@@ -27,6 +34,8 @@ led.value = True
 
 looping = False
 loop_pos = 0
+
+payload_manager = load_payloads()
 
 def execute_command(function, command):
     if function == "DELAY":

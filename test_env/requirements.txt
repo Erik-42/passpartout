@@ -1,0 +1,4 @@
+adafruit-circuitpython-hid
+adafruit-circuitpython-keyboard
+adafruit-circuitpython-mouse
+adafruit-circuitpython-consumercontrol

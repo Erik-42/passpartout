@@ -1,0 +1,36 @@
+{
+    "id": "windows_recovery",
+    "name": "Mode de récupération Windows",
+    "description": "Entrez en mode de récupération Windows",
+    "os": "Windows",
+    "actions": [
+        {
+            "type": "press",
+            "keys": ["CONTROL", "ALT", "DELETE"]
+        },
+        {
+            "type": "delay",
+            "duration": 2
+        },
+        {
+            "type": "write",
+            "text": "utilisateur_test"
+        },
+        {
+            "type": "press",
+            "keys": ["ENTER"]
+        },
+        {
+            "type": "delay",
+            "duration": 1
+        },
+        {
+            "type": "write",
+            "text": "motdepasse123"
+        },
+        {
+            "type": "press",
+            "keys": ["ENTER"]
+        }
+    ]
+}

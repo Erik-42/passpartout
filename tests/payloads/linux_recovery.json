@@ -1,0 +1,36 @@
+{
+    "id": "linux_recovery",
+    "name": "Mode de récupération Linux",
+    "description": "Entrez en mode de récupération Linux",
+    "os": "Linux",
+    "actions": [
+        {
+            "type": "press",
+            "keys": ["CTRL", "ALT", "F1"]
+        },
+        {
+            "type": "delay",
+            "duration": 2
+        },
+        {
+            "type": "write",
+            "text": "root"
+        },
+        {
+            "type": "press",
+            "keys": ["ENTER"]
+        },
+        {
+            "type": "delay",
+            "duration": 1
+        },
+        {
+            "type": "write",
+            "text": "motdepasse_root"
+        },
+        {
+            "type": "press",
+            "keys": ["ENTER"]
+        }
+    ]
+}

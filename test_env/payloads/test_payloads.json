@@ -1,0 +1,37 @@
+[
+    {
+        "id": "win_recovery",
+        "name": "Windows Recovery Mode",
+        "description": "Enters Windows Recovery Mode",
+        "os": "Windows",
+        "os_version": "10",
+        "architecture": "x64",
+        "actions": [
+            {"type": "press", "keys": ["windows", "r"]},
+            {"type": "write", "text": "shutdown /r /o /t 0"},
+            {"type": "press", "keys": ["enter"]}
+        ]
+    },
+    {
+        "id": "linux_update",
+        "name": "Linux System Update",
+        "description": "Updates Linux system packages",
+        "os": "Linux",
+        "os_distribution": "Ubuntu",
+        "actions": [
+            {"type": "press", "keys": ["ctrl", "alt", "t"]},
+            {"type": "write", "text": "sudo apt update && sudo apt upgrade -y"},
+            {"type": "press", "keys": ["enter"]}
+        ]
+    },
+    {
+        "id": "macos_reboot",
+        "name": "MacOS Reboot",
+        "description": "Reboots MacOS system",
+        "os": "MacOS",
+        "os_version": "13.0",
+        "actions": [
+            {"type": "press", "keys": ["command", "control", "alt", "power"]}
+        ]
+    }
+]

@@ -1,9 +1,15 @@
 import board
 import digitalio
 import time
-import storage
 import os
 import json
+
+# Mock pour le module storage
+class MockStorage:
+    def disable_usb_drive(self):
+        print("Lecteur USB désactivé")
+    
+storage = MockStorage()
 from adafruit_hid.keyboard import Keyboard
 from adafruit_hid.keycode import Keycode
 from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS
@@ -29,10 +35,16 @@ menu_position = 0
 config = {}
 
 # Menus disponibles
+from payloads import load_payloads
+
+# Charger les payloads au démarrage
+payload_manager = load_payloads()
+
 menus = {
     "main": [
         "Système d'exploitation",
         "Séquences de dépannage",
+        "Payloads",
         "Options d'exécution",
         "Sauvegarder",
         "Exécuter"
@@ -67,6 +79,20 @@ menus = {
         "Commande + Option + M (mission control)",
         "Commande + Option + Espace (Spotlight)",
         "Commande + Option + F2 (mode développeur)"
+    ],
+    "payloads": [
+        "Windows",
+        "Linux",
+        "MacOS"
+    ],
+    "windows_payloads": [
+        f"{payload['name']}" for payload in payload_manager.get_payloads_by_os("Windows")
+    ],
+    "linux_payloads": [
+        f"{payload['name']}" for payload in payload_manager.get_payloads_by_os("Linux")
+    ],
+    "mac_payloads": [
+        f"{payload['name']}" for payload in payload_manager.get_payloads_by_os("MacOS")
     ]
 }
 

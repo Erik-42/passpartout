@@ -1,0 +1,36 @@
+{
+    "id": "mac_recovery",
+    "name": "Mode de récupération macOS",
+    "description": "Entrez en mode de récupération macOS",
+    "os": "MacOS",
+    "actions": [
+        {
+            "type": "press",
+            "keys": ["COMMAND", "OPTION", "R"]
+        },
+        {
+            "type": "delay",
+            "duration": 2
+        },
+        {
+            "type": "write",
+            "text": "utilisateur_mac"
+        },
+        {
+            "type": "press",
+            "keys": ["ENTER"]
+        },
+        {
+            "type": "delay",
+            "duration": 1
+        },
+        {
+            "type": "write",
+            "text": "motdepasse_mac"
+        },
+        {
+            "type": "press",
+            "keys": ["ENTER"]
+        }
+    ]
+}
